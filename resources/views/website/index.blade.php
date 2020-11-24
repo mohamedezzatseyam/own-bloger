@@ -33,6 +33,14 @@
             <p class="post-meta">Posted by
                 <a href="#">{{ $post->user->name }}</a>
                 on {{ date('M d, Y', strtotime($post->created_at)) }}
+                @if(count($post->categories) > 0)
+                | <span class="post-category">
+            Category :
+                    @foreach($post->categories as $category)
+                        <a href="{{ url('category/' . $category->slug) }}">{{ $category->name }}</a>,
+                    @endforeach
+        </span>
+            @endif
             </p>
         </div>
         <hr>
