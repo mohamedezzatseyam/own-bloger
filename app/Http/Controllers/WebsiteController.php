@@ -14,4 +14,11 @@ class WebsiteController extends Controller
         $posts = Post::orderBy('id', 'DESC')->where('post_type', 'post')->where('is_published', '1')->paginate(5);
         return view('website.index', compact('posts', 'categories'));
     }
+
+
+    public function post($slug)
+      {
+      }
+
+
 }
